@@ -29,7 +29,11 @@ const JobDetails = () => {
   // ? REFRESH STATES
 
   const [refreshing, setRefreshing] = useState(false);
-  const onRefresh = useCallback(() => {}, []);
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refetch();
+    setRefreshing(false);
+  }, []);
 
   const { data, isLoading, error, refetch } = useFetch("job-details", {
     job_id: params.id,
