@@ -7,7 +7,24 @@
     "plugins": [
       "expo-router"
     ],
-    "name": "jsearch",
-    "slug": "jsearch"
+    "name": "Jobbit",
+    "slug": "jobbit",
+    "description": "An app which lets you browse for jobs and apply for them in their respective career portals.",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f907956c-30d2-46f3-b62e-88ae0b723a9a"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f907956c-30d2-46f3-b62e-88ae0b723a9a"
+    },
+    "android": {},
+    "ios": {}
   }
 }

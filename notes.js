@@ -3,3 +3,7 @@
 // ! npx expo start --tunnel
 
 // ? but be sure to install expo-cli globally other wise it wont work
+
+// ! to publish or update your app use the command
+
+// * npx expo publish
