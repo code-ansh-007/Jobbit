@@ -28,12 +28,18 @@ const Company = ({ companyLogo, jobTitle, companyName, location }) => {
         <Text style={tw`text-[#312651] text-2xl font-bold`} numberOfLines={1}>
           {jobTitle}
         </Text>
-        <View style={tw`flex flex-row items-center gap-2`} numberOfLines={1}>
+        <View style={tw`flex flex-row items-center gap-1`} numberOfLines={1}>
           <Text style={tw`text-xl text-[#312651] font-semibold `}>
             {companyName} /
           </Text>
-          <View></View>
-          <Text style={tw`text-xl text-[#312651]`}>{location}</Text>
+          <View style={tw`flex flex-row items-center`}>
+            <Image
+              source={icons.location}
+              resizeMode="contain"
+              style={tw`w-[20px] h-[20px]`}
+            />
+            <Text style={tw`text-xl text-[#312651]`}>{location}</Text>
+          </View>
         </View>
       </View>
     </View>
