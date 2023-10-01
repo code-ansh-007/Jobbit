@@ -14,7 +14,7 @@ const useFetch = (endpoint, query) => {
     url: `https://jsearch.p.rapidapi.com/${endpoint}`,
     params: { ...query },
     headers: {
-      "X-RapidAPI-Key": "f2a04a2434msh2657ca2be62f971p1d844ajsn26ff612c9b03",
+      "X-RapidAPI-Key": "fde68cd35emsh043be48b40175ffp10fe9cjsn9f7f96d866b8",
       "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     },
   };
@@ -28,7 +28,7 @@ const useFetch = (endpoint, query) => {
       setIsLoading(false);
     } catch (error) {
       setError(error);
-      alert("Error loading popular jobs!");
+      alert("Error loading jobs!");
     } finally {
       setIsLoading(false);
     }
