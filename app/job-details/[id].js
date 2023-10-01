@@ -76,7 +76,7 @@ const JobDetails = () => {
                 companyName={data[0].employer_name}
                 location={data[0].job_country}
               />
-              <JobTabs />
+              <JobTabs data={data[0]} />
             </View>
           )}
         </ScrollView>

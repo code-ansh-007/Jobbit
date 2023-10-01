@@ -3,47 +3,80 @@ import { View, Text } from "react-native";
 
 import tw from "twrnc";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Specifics from "../specifics/Specifics";
+import { JobAbout } from "../..";
 
-const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("description");
+const Tabs = ({ data }) => {
+  const [activeTab, setActiveTab] = useState("about");
+
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case "about":
+        return <JobAbout about={data.job_description ?? "No data provided."} />;
+      case "qualifications":
+        return (
+          <Specifics
+            title="Qualifications:"
+            points={data.job_highlights?.Qualifications ?? ["N/A"]}
+          />
+        );
+      case "responsibilities":
+        return (
+          <Specifics
+            title="Responsibilities:"
+            points={data.job_highlights?.Responsibilities ?? ["N/A"]}
+          />
+        );
+
+      default:
+        break;
+    }
+  };
 
   return (
-    <View>
-      <View style={tw`flex flex-row items-center gap-3`}>
-        <TouchableOpacity style={tw`w-[120px]`}>
+    <View style={tw`flex flex-col items-center justify-center w-full mt-5`}>
+      <View style={tw`flex flex-row items-center justify-center gap-2 w-full`}>
+        <TouchableOpacity style={tw``} onPress={() => setActiveTab("about")}>
           <Text
             style={tw`${
-              activeTab
+              activeTab === "about"
                 ? "bg-[#312651] text-white"
-                : "bg-[#E6E4E6] text-neutral-600"
-            } p-3 text-lg inline rounded-2xl`}
+                : "bg-[#f0eff0] text-neutral-600"
+            } px-3 py-2 text-lg  rounded-2xl`}
           >
-            Description
+            About
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={tw`w-[120px]`}>
+        <TouchableOpacity
+          style={tw``}
+          onPress={() => setActiveTab("qualifications")}
+        >
           <Text
             style={tw`${
-              activeTab
+              activeTab === "qualifications"
                 ? "bg-[#312651] text-white"
-                : "bg-[#E6E4E6] text-neutral-600"
-            } p-3 text-lg inline rounded-2xl`}
+                : "bg-[#f0eff0] text-neutral-600"
+            } px-3 py-2 text-lg  rounded-2xl`}
           >
-            Description
+            Qualifications
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={tw`w-[120px]`}>
+        <TouchableOpacity
+          style={tw``}
+          onPress={() => setActiveTab("responsibilities")}
+        >
           <Text
             style={tw`${
-              activeTab
+              activeTab === "responsibilities"
                 ? "bg-[#312651] text-white"
-                : "bg-[#E6E4E6] text-neutral-600"
-            } p-3 text-lg inline rounded-2xl`}
+                : "bg-[#f0eff0] text-neutral-600"
+            } px-3 py-2 text-lg  rounded-2xl`}
           >
-            Description
+            Responsibilities
           </Text>
         </TouchableOpacity>
       </View>
+      <View style={tw`w-full mt-5`}>{displayTabContent()}</View>
     </View>
   );
 };

@@ -22,7 +22,7 @@ const Company = ({ companyLogo, jobTitle, companyName, location }) => {
             resizeMode="contain"
             width={100}
             height={100}
-            style={tw`rounded-3xl bg-white`}
+            style={tw`rounded-2xl bg-white`}
           />
         </View>
         <Text style={tw`text-[#312651] text-2xl font-bold`} numberOfLines={1}>
